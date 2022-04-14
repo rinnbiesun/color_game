@@ -1,0 +1,79 @@
+{
+    "@@locale": "en",
+
+    
+    "language": "English",
+    "@language": {
+        "description": "The current Language"
+    },
+    "start": "Start",
+    "@start": {
+        "description": "Start new game"
+    },
+    "settings": "Settings",
+    "@settings": {
+        "description": "Settings for the game"
+    },
+    "confirm": "Confirm",
+    "@confirm": {
+        "description": "Confirm an action"
+    },
+    "greeting": "Hi👋 {name}!",
+    "@greeting": {
+        "description": "Greet the user by their name.",
+        "placeholders": {
+            "name": {
+                "type": "String",
+                "example": "Julia"
+            }
+        }
+    },
+    "playerName": "Player Name",
+    "@playerName": {
+        "description": "Insert player name in dialog"
+    },
+    "playerNameHint": "Maximum 20 words",
+    "@playerNameHint": {
+        "description": "Player name input hint"
+    },
+    "blue": "Blue",
+    "@blue": {
+        "description": "The blue color"
+    },
+    "red": "Red", 
+    "@red": {
+        "description": "The red color"
+    },
+    "green": "Green",
+    "@green": {
+        "description": "The green color"
+    },
+    "yellow": "Yellow",
+    "@yellow": {
+        "description": "The yellow color"
+    },
+    "orange": "Orange",
+    "@orange": {
+        "description": "The orange color"
+    },
+    "purple": "Purple",
+    "@purple": {
+        "description": "The purple color"
+    },
+    "brown": "Brown",
+    "@brown": {
+        "description": "The brown color"
+    },
+    "black": "Black",
+    "@black": {
+        "description": "The black color"
+    },
+    "pink": "Pink",
+    "@pink": {
+        "description": "The pink color"
+    },
+    "grey": "Grey",
+    "@grey": {
+        "description": "The grey color"
+    }
+}

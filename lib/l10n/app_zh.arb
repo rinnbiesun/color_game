@@ -1,0 +1,22 @@
+{
+    "@@locale": "zh",
+    
+
+    "language": "繁體中文",
+    "start": "開始遊戲",
+    "settings": "遊戲設定",
+    "confirm": "確定",
+    "greeting": "你好👋 {name}!",
+    "playerName": "玩家名字",
+    "playerNameHint": "最多20個字",
+    "blue": "藍",
+    "red": "紅", 
+    "green": "綠",
+    "yellow": "黃",
+    "orange": "橙",
+    "purple": "紫",
+    "brown": "啡",
+    "black": "黑",
+    "pink": "粉紅",
+    "grey": "灰"
+}
