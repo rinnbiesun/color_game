@@ -1,3 +1,4 @@
+import 'game/game_result.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -7,6 +8,13 @@ import 'game/game_data.dart';
 import 'game/game_page.dart';
 import 'home/home_page.dart';
 import 'l10n/l10n.dart';
+
+///
+/// TODO:
+/// - Use themes to share colors and font styles
+/// - Add Firebase Realtime Database for storing players' score
+/// - Run app on real iOS devices
+///
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));
@@ -40,6 +48,10 @@ class MyApp extends StatelessWidget {
         return buildRoute(const HomePage(), settings: settings);
       case AppRoute.game:
         return buildRoute(const GamePage(), settings: settings);
+      case AppRoute.result:
+        final arguments = settings.arguments as GameResultPageArguments;
+        return buildRoute(GameResultPage(score: arguments.score),
+            settings: settings);
       default:
         return null;
     }

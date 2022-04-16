@@ -1,4 +1,4 @@
-import 'package:color_game/game/game_db.dart';
+import '../game/game_db.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 

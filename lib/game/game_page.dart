@@ -1,4 +1,9 @@
+import 'dart:async';
+import 'dart:io';
+
+import '../app_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'game_answer.dart';
 import 'game_data.dart';
@@ -6,8 +11,44 @@ import 'game_question.dart';
 import 'game_score.dart';
 import 'game_timer.dart';
 
-class GamePage extends StatelessWidget {
+class GamePage extends ConsumerStatefulWidget {
   const GamePage({Key? key}) : super(key: key);
+
+  @override
+  ConsumerState<ConsumerStatefulWidget> createState() => _GamePageState();
+}
+
+class _GamePageState extends ConsumerState<GamePage> {
+  var counter = 1;
+  Timer? timer;
+
+  @override
+  void initState() {
+    super.initState();
+
+    Timer.periodic(const Duration(seconds: 1), (timer) {
+      this.timer = timer;
+      stdout.writeln(timer.tick);
+      counter--;
+      setState(() {
+        counter = counter;
+      });
+
+      if (counter == 0) {
+        stdout.writeln('Cancel timer');
+        timer.cancel();
+        Navigator.pushReplacementNamed(context, AppRoute.result,
+            arguments: GameResultPageArguments(ref.read(scoreProvider)));
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    stdout.writeln('Cancel timer');
+    timer?.cancel();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +67,7 @@ class GamePage extends StatelessWidget {
               const ScoreText(),
               Expanded(
                 child: Container(
-                  child: const TimerText(),
+                  child: TimerText(counter: counter),
                   alignment: Alignment.topRight,
                 ),
               )

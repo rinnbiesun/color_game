@@ -36,6 +36,14 @@
     "@playerNameHint": {
         "description": "Player name input hint"
     },
+    "gameResult": "Your Score",
+    "@gameResult": {
+        "description": "Display game result "
+    },
+    "backHome": "Back Home",
+    "@backHome": {
+        "description": "Back to home page"
+    },
     "blue": "Blue",
     "@blue": {
         "description": "The blue color"

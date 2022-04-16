@@ -1,9 +1,9 @@
 import 'dart:io';
 
-import 'package:color_game/app_route.dart';
-import 'package:color_game/game/game_data.dart';
-import 'package:color_game/game/game_db.dart';
-import 'package:color_game/services/database.dart';
+import '../app_route.dart';
+import '../game/game_data.dart';
+import '../game/game_db.dart';
+import '../services/database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';

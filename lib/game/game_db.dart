@@ -1,4 +1,4 @@
-import 'package:color_game/services/database.dart';
+import '../services/database.dart';
 
 class Profile {
   String? id;

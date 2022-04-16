@@ -1,5 +1,5 @@
-import 'package:color_game/game/game_data.dart';
-import 'package:color_game/services/database.dart';
+import '../game/game_data.dart';
+import '../services/database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

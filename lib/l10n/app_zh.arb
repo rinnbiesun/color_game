@@ -9,6 +9,8 @@
     "greeting": "你好👋 {name}!",
     "playerName": "玩家名字",
     "playerNameHint": "最多20個字",
+    "gameResult": "你的分數",
+    "backHome": "返回主頁",
     "blue": "藍",
     "red": "紅", 
     "green": "綠",
