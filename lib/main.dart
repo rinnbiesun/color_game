@@ -13,6 +13,9 @@ import 'l10n/l10n.dart';
 /// TODO:
 /// - Use themes to share colors and font styles
 /// - Add Firebase Realtime Database for storing players' score
+/// - Language settings
+/// - Add CI/CD
+/// - Firebase Crashlytics
 /// - Run app on real iOS devices
 ///
 
