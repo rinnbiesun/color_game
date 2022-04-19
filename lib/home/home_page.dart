@@ -9,6 +9,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:firebase_database/firebase_database.dart';
 
 import 'home_dialogs.dart';
 
@@ -65,6 +66,9 @@ class _HomePageState extends ConsumerState<HomePage> {
       stdout
           .writeln('deviceId = $deviceId, platform = $platform, name = $name');
     }
+    DatabaseReference dbRef = FirebaseDatabase.instance.ref("users/$deviceId");
+    await dbRef
+        .set({"id": deviceId, "name": name, "platform": platform, "score": 0});
 
     if (!mounted) return;
 

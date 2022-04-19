@@ -1,3 +1,5 @@
+import 'package:firebase_database/firebase_database.dart';
+
 import '../game/game_data.dart';
 import '../services/database.dart';
 import 'package:flutter/material.dart';
@@ -21,6 +23,17 @@ class _NameInputDialogState extends ConsumerState<NameInputDialog> {
 
   Future<void> savePlayerName(String name) async {
     await db.updateName(name);
+    _updateDb(name);
+  }
+
+  _updateDb(String name) async {
+    final profile = await db.getProfile();
+    var deviceId = profile?.id ?? '';
+    DatabaseReference ref = FirebaseDatabase.instance.ref("users/$deviceId");
+
+    await ref.update({
+      "name": name,
+    });
   }
 
   @override

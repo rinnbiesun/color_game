@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "395306354479",
+    "firebase_url": "https://color-game-827e1-default-rtdb.firebaseio.com",
+    "project_id": "color-game-827e1",
+    "storage_bucket": "color-game-827e1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:395306354479:android:a51c651796d9301b8683da",
+        "android_client_info": {
+          "package_name": "com.rinnbe.colorgame"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "395306354479-kb2tf04gi3lsdol9p53dmtnv6h5198gd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKdJrgDkrMZ-EPm-XdOyxg-YQK2vk0KNE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "395306354479-kb2tf04gi3lsdol9p53dmtnv6h5198gd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "395306354479-5cu5h46f7qshvo1i3idbmash9l65htmf.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.rinnbie.color"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
