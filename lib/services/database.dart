@@ -6,6 +6,7 @@ const String tableProfile = 'profile';
 const String columnId = 'id';
 const String columnName = 'name';
 const String columnPlatform = 'platform';
+const String columnScore = 'score';
 
 class DatabaseProvider {
   Database? _database;
@@ -16,7 +17,7 @@ class DatabaseProvider {
       join(path, 'game.db'),
       onCreate: (database, version) async {
         await database.execute(
-          "CREATE TABLE profile(id TEXT PRIMARY KEY, name TEXT NULL, platform TEXT NOT NULL)",
+          "CREATE TABLE profile(id TEXT PRIMARY KEY, name TEXT NULL, platform TEXT NOT NULL, score INT)",
         );
       },
       version: 1,
@@ -41,6 +42,11 @@ class DatabaseProvider {
   Future<void> updateName(String name) async {
     final Database db = await database;
     await db.rawUpdate('UPDATE Profile SET name = ?', [name]);
+  }
+
+  Future<void> updateScore(int score) async {
+    final Database db = await database;
+    await db.rawUpdate('UPDATE Profile SET score = ?', [score]);
   }
 
   Future<Profile?> getProfile() async {

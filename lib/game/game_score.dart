@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'game_data.dart';
 
-final scoreProvider = StateProvider<int>((ref) {
+final scoreProvider = StateProvider.autoDispose<int>((ref) {
   return 0;
 });
 

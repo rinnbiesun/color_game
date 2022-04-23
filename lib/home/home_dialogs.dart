@@ -1,11 +1,10 @@
-import 'package:firebase_database/firebase_database.dart';
-
 import '../game/game_data.dart';
 import '../services/database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '../services/firebase_database.dart';
 import 'home_page.dart';
 
 class NameInputDialog extends ConsumerStatefulWidget {
@@ -23,17 +22,9 @@ class _NameInputDialogState extends ConsumerState<NameInputDialog> {
 
   Future<void> savePlayerName(String name) async {
     await db.updateName(name);
-    _updateDb(name);
-  }
-
-  _updateDb(String name) async {
     final profile = await db.getProfile();
-    var deviceId = profile?.id ?? '';
-    DatabaseReference ref = FirebaseDatabase.instance.ref("users/$deviceId");
-
-    await ref.update({
-      "name": name,
-    });
+    final deviceId = profile?.id ?? '';
+    FirebaseDbManager.updateName(deviceId, name);
   }
 
   @override

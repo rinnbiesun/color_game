@@ -38,11 +38,19 @@
     },
     "gameResult": "Your Score",
     "@gameResult": {
-        "description": "Display game result "
+        "description": "Display game result"
     },
     "backHome": "Back Home",
     "@backHome": {
         "description": "Back to home page"
+    },
+    "submitScore": "Submit Score",
+    "@submitScore": {
+        "description": "Submit the score to Firebase database"
+    },
+    "submitScoreSuccessMsg": "Your score has been sent!",
+    "@submitScoreSuccessMsg": {
+        "description": "A success message after player sent the score"
     },
     "blue": "Blue",
     "@blue": {

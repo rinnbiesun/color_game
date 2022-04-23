@@ -11,6 +11,8 @@
     "playerNameHint": "最多20個字",
     "gameResult": "你的分數",
     "backHome": "返回主頁",
+    "submitScore": "提交分數",
+    "submitScoreSuccessMsg": "分數提交成功!",
     "blue": "藍",
     "red": "紅", 
     "green": "綠",

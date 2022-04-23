@@ -9,8 +9,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:firebase_database/firebase_database.dart';
 
+import '../services/firebase_database.dart';
 import 'home_dialogs.dart';
 
 const platformAndroid = 'android';
@@ -40,7 +40,8 @@ class _HomePageState extends ConsumerState<HomePage> {
 
     var deviceId = profile?.id ?? '';
     var platform = profile?.platform ?? '';
-    var name = profile?.name ?? '';
+    final name = profile?.name ?? '';
+    final score = profile?.score ?? 0;
 
     if (deviceId.isEmpty) {
       try {
@@ -54,7 +55,7 @@ class _HomePageState extends ConsumerState<HomePage> {
           platform = platformIos;
         }
         stdout.writeln(
-            'deviceId = $deviceId, platform = $platform, name = $name');
+            'deviceId = $deviceId, platform = $platform, name = $name, score = $score');
       } on PlatformException {
         stdout.writeln('Error: Failed to get platform version.');
       }
@@ -63,12 +64,12 @@ class _HomePageState extends ConsumerState<HomePage> {
         db.insertProfile(Profile(id: deviceId, platform: platform));
       }
     } else {
-      stdout
-          .writeln('deviceId = $deviceId, platform = $platform, name = $name');
+      stdout.writeln(
+          'deviceId = $deviceId, platform = $platform, name = $name, score = $score');
     }
-    DatabaseReference dbRef = FirebaseDatabase.instance.ref("users/$deviceId");
-    await dbRef
-        .set({"id": deviceId, "name": name, "platform": platform, "score": 0});
+
+    FirebaseDbManager.initUser(deviceId,
+        {"id": deviceId, "name": name, "platform": platform, "score": score});
 
     if (!mounted) return;
 
@@ -84,6 +85,8 @@ class _HomePageState extends ConsumerState<HomePage> {
     return Scaffold(
       backgroundColor: const Color(AppColor.generalBackgroundColor),
       appBar: null,
+      resizeToAvoidBottomInset:
+          false, // prevent keyboard open will resize other widgets
       body: SafeArea(
         child: Column(
             mainAxisSize: MainAxisSize.min,

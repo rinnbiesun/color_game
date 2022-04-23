@@ -19,7 +19,7 @@ class GamePage extends ConsumerStatefulWidget {
 }
 
 class _GamePageState extends ConsumerState<GamePage> {
-  var counter = 1;
+  var counter = 60;
   Timer? timer;
 
   @override
