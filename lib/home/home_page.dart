@@ -63,13 +63,12 @@ class _HomePageState extends ConsumerState<HomePage> {
       if (deviceId.isNotEmpty && platform.isNotEmpty) {
         db.insertProfile(Profile(id: deviceId, platform: platform));
       }
+      FirebaseDbManager.initUser(deviceId,
+          {"id": deviceId, "name": name, "platform": platform, "score": score});
     } else {
       stdout.writeln(
           'deviceId = $deviceId, platform = $platform, name = $name, score = $score');
     }
-
-    FirebaseDbManager.initUser(deviceId,
-        {"id": deviceId, "name": name, "platform": platform, "score": score});
 
     if (!mounted) return;
 

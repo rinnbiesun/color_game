@@ -13,13 +13,12 @@ import 'l10n/l10n.dart';
 
 ///
 /// TODO:
-/// [x] Use themes to share colors and font styles
-/// [o] Add Firebase Realtime Database for storing players' score
-/// [x] Only update score if new score is higher than score in Firebase Database
-/// [x] Language settings
-/// [x] Add CI/CD
-/// [x] Firebase Crashlytics
-/// [x] Run app on real iOS devices
+/// - Leaderboard
+/// - Use themes to share colors and font styles
+/// - Language settings
+/// - Add CI/CD
+/// - Firebase Crashlytics
+/// - Run app on real iOS devices
 ///
 
 void main() async {

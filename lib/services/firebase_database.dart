@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:firebase_database/firebase_database.dart';
 
 class FirebaseDbManager {
@@ -14,8 +16,19 @@ class FirebaseDbManager {
     await dbRef.set(user);
   }
 
+  static Future<int> getScore(String deviceId) async {
+    final ref = FirebaseDatabase.instance.ref();
+    final snapshot = await ref.child('users/$deviceId/score').get();
+    if (snapshot.exists) {
+      stdout.writeln('snapshot.exists = ${snapshot.value.toString()}');
+      return int.parse(snapshot.value.toString());
+    } else {
+      return 0;
+    }
+  }
+
   static Future<void> updateName(String deviceId, String name) async {
-    DatabaseReference ref = FirebaseDatabase.instance.ref("users/$deviceId");
+    final ref = FirebaseDatabase.instance.ref("users/$deviceId");
 
     await ref.update({
       "name": name,
@@ -24,7 +37,7 @@ class FirebaseDbManager {
 
   static Future<void> updateScore(String deviceId, int score,
       Function(void) onSuccess, Function onError) async {
-    DatabaseReference ref = FirebaseDatabase.instance.ref("users/$deviceId");
+    final ref = FirebaseDatabase.instance.ref("users/$deviceId");
 
     await ref
         .update({

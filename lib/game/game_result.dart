@@ -18,15 +18,37 @@ class GameResultPage extends StatefulWidget {
 
 class _GameResultPageState extends State<GameResultPage> {
   final DatabaseProvider db = DatabaseProvider();
+  var _highestScore = 0;
 
-  Future<void> _submitScore(int score, Function(void) onSubmitSuccess) async {
+  @override
+  void initState() {
+    super.initState();
+    _submitScore(widget.score);
+    _getScoreRecord();
+  }
+
+  _getScoreRecord() async {
     final profile = await db.getProfile();
     final deviceId = profile?.id ?? '';
-    await db.updateScore(score);
-
-    FirebaseDbManager.updateScore(deviceId, score, onSubmitSuccess, () {
-      // onError
+    final score = await FirebaseDbManager.getScore(deviceId);
+    setState(() {
+      _highestScore = score;
     });
+  }
+
+  Future<void> _submitScore(int score) async {
+    final profile = await db.getProfile();
+    final deviceId = profile?.id ?? '';
+    final highestScore = profile?.score ?? 0;
+
+    if (score > highestScore) {
+      await db.updateScore(score);
+      FirebaseDbManager.updateScore(deviceId, score, (_) {
+        // onSuccess
+      }, () {
+        // onError
+      });
+    }
   }
 
   @override
@@ -39,18 +61,60 @@ class _GameResultPageState extends State<GameResultPage> {
           mainAxisSize: MainAxisSize.min,
           children: [
             const SizedBox(height: 100.0),
-            Center(
-              child: Text(AppLocalizations.of(context)!.gameResult,
-                  style: const TextStyle(
-                    color: Color(AppColor.generalTextColor),
-                    fontSize: 36.0,
-                  )),
+            Row(
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: Center(
+                    child: Text(AppLocalizations.of(context)!.gameResult,
+                        style: const TextStyle(
+                          color: Color(AppColor.generalTextColor),
+                          fontSize: 24.0,
+                        )),
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: Center(
+                    child: Text(AppLocalizations.of(context)!.highestScore,
+                        style: const TextStyle(
+                          color: Color(AppColor.generalTextColor),
+                          fontSize: 24.0,
+                        )),
+                  ),
+                ),
+              ],
             ),
             const SizedBox(height: 20.0),
-            Center(
-              child: Text(widget.score.toString(),
-                  style: const TextStyle(
-                      color: Color(AppColor.generalTextColor), fontSize: 36.0)),
+            Row(
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: Center(
+                    child: Text(widget.score.toString(),
+                        style: const TextStyle(
+                            color: Color(AppColor.generalTextColor),
+                            fontSize: 36.0)),
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: Center(
+                    child: Text(_highestScore.toString(),
+                        style: const TextStyle(
+                            color: Color(AppColor.generalTextColor),
+                            fontSize: 36.0)),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              width: 0.0,
+              height: 48.0,
+            ),
+            HomeCard(
+              text: AppLocalizations.of(context)!.leaderboard,
+              onTap: () {},
             ),
             const SizedBox(
               width: 0.0,
@@ -60,22 +124,6 @@ class _GameResultPageState extends State<GameResultPage> {
               text: AppLocalizations.of(context)!.backHome,
               onTap: () {
                 Navigator.pushReplacementNamed(context, AppRoute.home);
-              },
-            ),
-            const SizedBox(
-              width: 0.0,
-              height: 48.0,
-            ),
-            HomeCard(
-              text: AppLocalizations.of(context)!.submitScore,
-              onTap: () {
-                _submitScore(widget.score, (_) {
-                  final snackBar = SnackBar(
-                    content: Text(
-                        AppLocalizations.of(context)!.submitScoreSuccessMsg),
-                  );
-                  ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                });
               },
             ),
           ],

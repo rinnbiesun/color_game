@@ -40,9 +40,17 @@
     "@gameResult": {
         "description": "Display game result"
     },
+    "highestScore": "Highest Score",
+    "@highestScore": {
+        "description": "Display highest score"
+    },
     "backHome": "Back Home",
     "@backHome": {
         "description": "Back to home page"
+    },
+    "leaderboard": "Leaderboard",
+    "@leaderboard": {
+        "description": "Game Leaderboard"
     },
     "submitScore": "Submit Score",
     "@submitScore": {
