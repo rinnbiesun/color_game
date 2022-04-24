@@ -113,16 +113,30 @@ class _HomePageState extends ConsumerState<HomePage> {
                     ),
                     const SizedBox(
                       width: 0.0,
-                      height: 48.0,
+                      height: 24.0,
                     ),
-                    HomeCard(
-                      text: AppLocalizations.of(context)!.settings,
-                      onTap: () => {
-                        showDialog(
-                            context: context,
-                            builder: (context) => const NameInputDialog())
-                      },
-                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                          flex: 1,
+                          child: HomeHalfCard(
+                            text: AppLocalizations.of(context)!.leaderboard,
+                            onTap: () => {},
+                          ),
+                        ),
+                        Expanded(
+                          flex: 1,
+                          child: HomeHalfCard(
+                            text: AppLocalizations.of(context)!.settings,
+                            onTap: () => {
+                              showDialog(
+                                  context: context,
+                                  builder: (context) => const NameInputDialog())
+                            },
+                          ),
+                        ),
+                      ],
+                    )
                   ],
                 ),
               ),
@@ -189,8 +203,37 @@ class HomeCard extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-          margin: const EdgeInsets.symmetric(horizontal: 48.0),
+          margin: const EdgeInsets.symmetric(horizontal: 12.0),
           padding: const EdgeInsets.all(50.0),
+          alignment: Alignment.center,
+          child: Text(
+            text,
+            style: const TextStyle(
+                fontSize: 36.0, color: Color(AppColor.generalTextColor)),
+          ),
+          decoration: const BoxDecoration(
+              color: Color(AppColor.buttonBackgroundColor),
+              shape: BoxShape.rectangle,
+              border: null,
+              borderRadius: BorderRadius.all(Radius.circular(30.0)))),
+    );
+  }
+}
+
+class HomeHalfCard extends StatelessWidget {
+  const HomeHalfCard({Key? key, required this.text, required this.onTap})
+      : super(key: key);
+
+  final String text;
+  final VoidCallback? onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+          margin: const EdgeInsets.symmetric(horizontal: 12.0),
+          padding: const EdgeInsets.symmetric(vertical: 50.0),
           alignment: Alignment.center,
           child: Text(
             text,

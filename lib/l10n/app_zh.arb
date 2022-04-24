@@ -4,7 +4,7 @@
 
     "language": "繁體中文",
     "start": "開始遊戲",
-    "settings": "遊戲設定",
+    "settings": "設定",
     "confirm": "確定",
     "greeting": "你好👋 {name}!",
     "playerName": "玩家名字",

@@ -113,14 +113,6 @@ class _GameResultPageState extends State<GameResultPage> {
               height: 48.0,
             ),
             HomeCard(
-              text: AppLocalizations.of(context)!.leaderboard,
-              onTap: () {},
-            ),
-            const SizedBox(
-              width: 0.0,
-              height: 48.0,
-            ),
-            HomeCard(
               text: AppLocalizations.of(context)!.backHome,
               onTap: () {
                 Navigator.pushReplacementNamed(context, AppRoute.home);
