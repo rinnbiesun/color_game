@@ -1,8 +1,8 @@
 import 'dart:io';
 
 import '../app_route.dart';
-import '../game/game_data.dart';
-import '../game/game_db.dart';
+import '../app_color.dart';
+import '../game/game_model.dart';
 import '../services/database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -121,7 +121,9 @@ class _HomePageState extends ConsumerState<HomePage> {
                           flex: 1,
                           child: HomeHalfCard(
                             text: AppLocalizations.of(context)!.leaderboard,
-                            onTap: () => {},
+                            onTap: () => {
+                              Navigator.pushNamed(context, AppRoute.leaderboard)
+                            },
                           ),
                         ),
                         Expanded(

@@ -5,7 +5,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../services/database.dart';
 import '../services/firebase_database.dart';
-import 'game_data.dart';
+import '../app_color.dart';
 
 class GameResultPage extends StatefulWidget {
   const GameResultPage({Key? key, required this.score}) : super(key: key);

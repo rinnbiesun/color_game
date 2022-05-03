@@ -109,10 +109,3 @@ String getColorName(BuildContext context, String key) {
       return '';
   }
 }
-
-class GameItem {
-  GameItem({required this.key, required this.color});
-
-  final String key;
-  final Color color;
-}

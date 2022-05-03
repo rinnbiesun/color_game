@@ -3,8 +3,9 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'game_data.dart';
+import '../app_color.dart';
 import 'game_answer.dart';
+import 'game_model.dart';
 
 final gameQuestionProvider = Provider.autoDispose<GameItem>((ref) {
   final List<GameItem> answers = ref.watch(answerNotifierProvider);

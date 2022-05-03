@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'game_data.dart';
+import '../app_color.dart';
 
 class TimerText extends StatelessWidget {
   const TimerText({Key? key, required this.counter}) : super(key: key);

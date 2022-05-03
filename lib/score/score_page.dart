@@ -1,4 +1,4 @@
-import '../game/game_data.dart';
+import '../app_color.dart';
 import 'package:flutter/material.dart';
 
 class ScorePage extends StatelessWidget {

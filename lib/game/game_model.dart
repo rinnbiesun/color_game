@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 import '../services/database.dart';
 
 class Profile {
@@ -27,4 +29,11 @@ class Profile {
   String toString() {
     return 'Profile{id: $id, name: $name, platform: $platform, score: $score}';
   }
+}
+
+class GameItem {
+  GameItem({required this.key, required this.color});
+
+  final String key;
+  final Color color;
 }

@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'game_answer.dart';
-import 'game_data.dart';
+import '../app_color.dart';
 import 'game_question.dart';
 import 'game_score.dart';
 import 'game_timer.dart';
