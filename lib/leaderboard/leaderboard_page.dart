@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 
@@ -24,6 +25,7 @@ class _LeaderboardPageState extends State<LeaderboardPage> {
 
   _getUsers() async {
     final leaderboardResult = await FirebaseDbManager.getLeaderboard();
+    leaderboardResult.sort((a, b) => a.score ?? 0.compareTo(b.score ?? 0));
     stdout.writeln(leaderboardResult.toString());
     setState(() {
       players = leaderboardResult;
@@ -44,31 +46,35 @@ class _LeaderboardPageState extends State<LeaderboardPage> {
         itemCount: players.length,
         itemBuilder: (BuildContext context, int index) {
           final player = players[index];
-          return Row(
-            children: [
-              Expanded(
-                  child: Center(
-                      child: Text(
-                '${index + 1}',
-                style:
-                    const TextStyle(color: AppColor.colorBlack, fontSize: 48),
-              ))),
-              Expanded(
-                  child: Center(
-                      child: Text(
-                player.name ?? '',
-                style: const TextStyle(
-                    color: Color(AppColor.generalTextColor), fontSize: 30),
-              ))),
-              Expanded(
-                  child: Center(
-                      child: Text(
-                player.score.toString(),
-                style: const TextStyle(
-                    color: Color(AppColor.generalTextColor), fontSize: 30),
-              )))
-            ],
-          );
+          if (player.score != 0) {
+            return Row(
+              children: [
+                Expanded(
+                    child: Center(
+                        child: Text(
+                  '${index + 1}',
+                  style:
+                      const TextStyle(color: AppColor.colorBlack, fontSize: 48),
+                ))),
+                Expanded(
+                    child: Center(
+                        child: Text(
+                  player.name ?? '',
+                  style: const TextStyle(
+                      color: Color(AppColor.generalTextColor), fontSize: 30),
+                ))),
+                Expanded(
+                    child: Center(
+                        child: Text(
+                  player.score.toString(),
+                  style: const TextStyle(
+                      color: Color(AppColor.generalTextColor), fontSize: 30),
+                )))
+              ],
+            );
+          } else {
+            return Container();
+          }
         },
       ),
     );
