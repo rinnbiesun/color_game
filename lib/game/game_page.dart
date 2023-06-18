@@ -73,13 +73,13 @@ class _GamePageState extends ConsumerState<GamePage> {
               )
             ]),
           ),
-          Expanded(
+          const Expanded(
             flex: 1,
-            child: const Center(child: ColorQuestion()),
+            child: Center(child: ColorQuestion()),
           ),
-          Expanded(
+          const Expanded(
             flex: 2,
-            child: const ColorAnswer(),
+            child: ColorAnswer(),
           ),
         ],
       ),

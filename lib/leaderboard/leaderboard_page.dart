@@ -24,7 +24,8 @@ class _LeaderboardPageState extends State<LeaderboardPage> {
 
   _getUsers() async {
     final leaderboardResult = await FirebaseDbManager.getLeaderboard();
-    leaderboardResult.sort((a, b) => a.score ?? 0.compareTo(b.score ?? 0));
+    leaderboardResult.where((profile) => profile.score > 0).toList();
+    leaderboardResult.sort((b, a) => a.score.compareTo(b.score));
     stdout.writeln(leaderboardResult.toString());
     setState(() {
       players = leaderboardResult;

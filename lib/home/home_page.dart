@@ -92,7 +92,7 @@ class _HomePageState extends ConsumerState<HomePage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               AppInfoText(uuid: _deviceId),
-              Expanded(flex: 1, child: const Center(child: GreetingText())),
+              const Expanded(flex: 1, child: Center(child: GreetingText())),
               Expanded(
                 flex: 2,
                 child: Column(
@@ -208,16 +208,16 @@ class HomeCard extends StatelessWidget {
           margin: const EdgeInsets.symmetric(horizontal: 12.0),
           padding: const EdgeInsets.all(50.0),
           alignment: Alignment.center,
-          child: Text(
-            text,
-            style: const TextStyle(
-                fontSize: 36.0, color: Color(AppColor.generalTextColor)),
-          ),
           decoration: const BoxDecoration(
               color: Color(AppColor.buttonBackgroundColor),
               shape: BoxShape.rectangle,
               border: null,
-              borderRadius: BorderRadius.all(Radius.circular(30.0)))),
+              borderRadius: BorderRadius.all(Radius.circular(30.0))),
+          child: Text(
+            text,
+            style: const TextStyle(
+                fontSize: 36.0, color: Color(AppColor.generalTextColor)),
+          )),
     );
   }
 }
@@ -237,16 +237,16 @@ class HomeHalfCard extends StatelessWidget {
           margin: const EdgeInsets.symmetric(horizontal: 12.0),
           padding: const EdgeInsets.symmetric(vertical: 50.0),
           alignment: Alignment.center,
-          child: Text(
-            text,
-            style: const TextStyle(
-                fontSize: 36.0, color: Color(AppColor.generalTextColor)),
-          ),
           decoration: const BoxDecoration(
               color: Color(AppColor.buttonBackgroundColor),
               shape: BoxShape.rectangle,
               border: null,
-              borderRadius: BorderRadius.all(Radius.circular(30.0)))),
+              borderRadius: BorderRadius.all(Radius.circular(30.0))),
+          child: Text(
+            text,
+            style: const TextStyle(
+                fontSize: 36.0, color: Color(AppColor.generalTextColor)),
+          )),
     );
   }
 }

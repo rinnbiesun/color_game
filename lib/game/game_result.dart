@@ -31,8 +31,9 @@ class _GameResultPageState extends State<GameResultPage> {
     final profile = await db.getProfile();
     final deviceId = profile?.id ?? '';
     final score = await FirebaseDbManager.getScore(deviceId);
+    final highestScore = widget.score > score ? widget.score : score;
     setState(() {
-      _highestScore = score;
+      _highestScore = highestScore;
     });
   }
 

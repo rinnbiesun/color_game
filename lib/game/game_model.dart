@@ -6,9 +6,9 @@ class Profile {
   String? id = '';
   String? name = '';
   String? platform = '';
-  int? score = 0;
+  int score = 0;
 
-  Profile({required this.id, this.name, required this.platform, this.score});
+  Profile({required this.id, this.name, required this.platform});
 
   Profile.fromMap(Map<String, dynamic> map)
       : id = map[columnId],

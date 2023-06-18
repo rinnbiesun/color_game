@@ -39,8 +39,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-          primarySwatch:
-              MaterialColor(AppColor.appBarBackgroundColor, AppColor.color)),
+          primarySwatch: const MaterialColor(
+              AppColor.appBarBackgroundColor, AppColor.color)),
       initialRoute: AppRoute.home,
       onGenerateRoute: (route) => getRoute(route),
       localizationsDelegates: const [

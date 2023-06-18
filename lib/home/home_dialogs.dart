@@ -60,7 +60,7 @@ class _NameInputDialogState extends ConsumerState<NameInputDialog> {
               AppLocalizations.of(context)!.playerName,
               style: Theme.of(context)
                   .textTheme
-                  .headline6
+                  .titleLarge
                   ?.copyWith(color: const Color(AppColor.generalTextColor)),
             ),
             const SizedBox(height: 24),
@@ -86,7 +86,7 @@ class _NameInputDialogState extends ConsumerState<NameInputDialog> {
             const SizedBox(height: 12),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                  primary: const Color(AppColor.buttonBackgroundColor),
+                  backgroundColor: const Color(AppColor.buttonBackgroundColor),
                   padding: const EdgeInsets.symmetric(horizontal: 56)),
               onPressed: () {
                 if (_controller.text.isNotEmpty) {
@@ -100,7 +100,7 @@ class _NameInputDialogState extends ConsumerState<NameInputDialog> {
                 AppLocalizations.of(context)!.confirm,
                 style: Theme.of(context)
                     .textTheme
-                    .button!
+                    .labelLarge!
                     .copyWith(color: const Color(AppColor.generalTextColor)),
               ),
             )
