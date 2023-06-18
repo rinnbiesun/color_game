@@ -29,12 +29,6 @@ class ColorQuestion extends ConsumerStatefulWidget {
 
 class _ColorQuestionState extends ConsumerState<ColorQuestion> {
   @override
-  void initState() {
-    super.initState();
-    ref.read(answerNotifierProvider.notifier).refreshAnswers();
-  }
-
-  @override
   Widget build(BuildContext context) {
     final answer = ref.watch(gameQuestionProvider);
     return Text(

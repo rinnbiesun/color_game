@@ -47,7 +47,7 @@ class _HomePageState extends ConsumerState<HomePage> {
       try {
         if (Platform.isAndroid) {
           AndroidDeviceInfo android = await _deviceInfoPlugin.androidInfo;
-          deviceId = android.androidId ?? '';
+          deviceId = android.id;
           platform = platformAndroid;
         } else if (Platform.isIOS) {
           IosDeviceInfo ios = await _deviceInfoPlugin.iosInfo;
@@ -92,7 +92,7 @@ class _HomePageState extends ConsumerState<HomePage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               AppInfoText(uuid: _deviceId),
-              const Expanded(flex: 1, child: Center(child: GreetingText())),
+              Expanded(flex: 1, child: const Center(child: GreetingText())),
               Expanded(
                 flex: 2,
                 child: Column(

@@ -10,7 +10,9 @@ import 'game_question.dart';
 import 'game_score.dart';
 
 class AnswerNotifier extends StateNotifier<List<GameItem>> {
-  AnswerNotifier() : super([]);
+  AnswerNotifier() : super(<GameItem>[]) {
+    refreshAnswers();
+  }
 
   final colorLength = 6;
 

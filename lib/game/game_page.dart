@@ -67,19 +67,19 @@ class _GamePageState extends ConsumerState<GamePage> {
               const ScoreText(),
               Expanded(
                 child: Container(
-                  child: TimerText(counter: counter),
                   alignment: Alignment.topRight,
+                  child: TimerText(counter: counter),
                 ),
               )
             ]),
           ),
-          const Expanded(
-            child: Center(child: ColorQuestion()),
+          Expanded(
             flex: 1,
+            child: const Center(child: ColorQuestion()),
           ),
-          const Expanded(
-            child: ColorAnswer(),
+          Expanded(
             flex: 2,
+            child: const ColorAnswer(),
           ),
         ],
       ),
