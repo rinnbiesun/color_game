@@ -18,18 +18,16 @@ class AppColor {
   static const appBarBackgroundColor = 0xffe9edc9;
   static const generalBackgroundColor = 0xffe9edc9;
   static const generalTextColor = 0xFF616161;
-  static const buttonBackgroundColor = 0xfffefae0;
+  static const buttonBackgroundColor = 0xffffffff;
 
-  static const colorBlue = Colors.blue;
+  static const colorBlue = Color(0xff0072b2);
   static const colorRed = Colors.red;
-  static const colorGreen = Colors.green;
-  static const colorYellow = Colors.yellow;
-  static const colorOrange = Colors.orange;
-  static const colorPurple = Colors.purple;
-  static const colorBrown = Colors.brown;
+  static const colorGreen = Color(0xff009e73);
+  static const colorYellow = Color(0xfff0e442);
+  static const colorOrange = Color(0xffe69f00);
+  static const colorPurple = Color(0xffcc79a7);
   static const colorBlack = Colors.black;
-  static const colorPink = Color(0xFFF06292);
-  static const colorGrey = Colors.grey;
+  static const colorSkyBlue = Color(0xff56b4e9);
 
   static const colorKeyBlue = 'blue';
   static const colorKeyRed = 'red';
@@ -37,10 +35,8 @@ class AppColor {
   static const colorKeyYellow = 'yellow';
   static const colorKeyOrange = 'orange';
   static const colorKeyPurple = 'purple';
-  static const colorKeyBrown = 'brown';
   static const colorKeyBlack = 'black';
-  static const colorKeyPink = 'pink';
-  static const colorKeyGrey = 'grey';
+  static const colorKeySkyBlue = 'skyBlue';
 
   static const colorsConfig = {
     colorKeyBlue: colorBlue,
@@ -49,10 +45,8 @@ class AppColor {
     colorKeyYellow: colorYellow,
     colorKeyOrange: colorOrange,
     colorKeyPurple: colorPurple,
-    colorKeyBrown: colorBrown,
     colorKeyBlack: colorBlack,
-    colorKeyPink: colorPink,
-    colorKeyGrey: colorGrey,
+    colorKeySkyBlue: colorSkyBlue,
   };
 
   static const List<String> colorKeys = [
@@ -62,10 +56,8 @@ class AppColor {
     colorKeyYellow,
     colorKeyOrange,
     colorKeyPurple,
-    colorKeyBrown,
     colorKeyBlack,
-    colorKeyPink,
-    colorKeyGrey,
+    colorKeySkyBlue,
   ];
 
   static const List<Color> colorList = [
@@ -75,10 +67,8 @@ class AppColor {
     colorYellow,
     colorOrange,
     colorPurple,
-    colorBrown,
     colorBlack,
-    colorPink,
-    colorGrey,
+    colorSkyBlue,
   ];
 }
 
@@ -97,14 +87,10 @@ String getColorName(BuildContext context, String key) {
       return appLocalizations.orange;
     case AppColor.colorKeyPurple:
       return appLocalizations.purple;
-    case AppColor.colorKeyBrown:
-      return appLocalizations.brown;
+    case AppColor.colorKeySkyBlue:
+      return appLocalizations.skyBlue;
     case AppColor.colorKeyBlack:
       return appLocalizations.black;
-    case AppColor.colorKeyPink:
-      return appLocalizations.pink;
-    case AppColor.colorKeyGrey:
-      return appLocalizations.grey;
     default:
       return '';
   }

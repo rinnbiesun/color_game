@@ -73,9 +73,16 @@ class _GamePageState extends ConsumerState<GamePage> {
               )
             ]),
           ),
-          const Expanded(
+          Expanded(
             flex: 1,
-            child: Center(child: ColorQuestion()),
+            child: Container(
+              color: Colors.white,
+              child: const Center(child: ColorQuestion()),
+            ),
+          ),
+          const SizedBox(
+            width: 0.0,
+            height: 12.0,
           ),
           const Expanded(
             flex: 2,

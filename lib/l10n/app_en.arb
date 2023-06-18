@@ -84,20 +84,12 @@
     "@purple": {
         "description": "The purple color"
     },
-    "brown": "Brown",
-    "@brown": {
-        "description": "The brown color"
-    },
     "black": "Black",
     "@black": {
         "description": "The black color"
     },
-    "pink": "Pink",
-    "@pink": {
-        "description": "The pink color"
-    },
-    "grey": "Grey",
-    "@grey": {
-        "description": "The grey color"
+    "skyBlue": "Sky Blue",
+    "@skyBlue": {
+        "description": "The sky blue color"
     }
 }
