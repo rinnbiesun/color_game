@@ -47,7 +47,7 @@ class _HomePageState extends ConsumerState<HomePage> {
       try {
         if (Platform.isAndroid) {
           AndroidDeviceInfo android = await _deviceInfoPlugin.androidInfo;
-          deviceId = android.id;
+          deviceId = android.id.replaceAll('.', '-');
           platform = platformAndroid;
         } else if (Platform.isIOS) {
           IosDeviceInfo ios = await _deviceInfoPlugin.iosInfo;
